@@ -28,7 +28,6 @@ public class ApiController {
 	@ResponseBody
 	public Map<String, Object> uploadWarningCase(@RequestBody MaisiWarningCaseVo warningCase) {
 		warningCaseService.uploadWarningCase(warningCase);
-		if (1==1) throw new SecurityException("111",new Throwable("222"));
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("resultCode", 0);
 		map.put("msg", "上传数据成功");
