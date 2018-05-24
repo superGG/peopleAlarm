@@ -13,10 +13,9 @@
 	</properties>
   <groupId>mwc</groupId>
   <artifactId>mwc</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>mwc Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <name>mwc</name>
   <dependencies>
     <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -88,6 +87,11 @@
 		</dependency>
   </dependencies>
   <build>
-    <finalName>mwc</finalName>
+    <plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
   </build>
 </project>
