@@ -36,6 +36,7 @@ public class WarningCasePo implements Serializable{
 	private String alarmOccurTime; //告警产生时间
 	private String alarmConfirmTime;//告警确认时间，没确认则为空
 	private String alarmClearTime;//告警结束时间，没结束则为空
+	private String alarmTypeID;//告警类型ID
 	private String projectCode; //项目编号
 	
 	@Id
@@ -108,6 +109,13 @@ public class WarningCasePo implements Serializable{
 	}
 	public void setProjectCode(String projectCode) {
 		this.projectCode = projectCode;
+	}
+	@Column(name="alarm_type_id")
+	public String getAlarmTypeID() {
+		return alarmTypeID;
+	}
+	public void setAlarmTypeID(String alarmTypeID) {
+		this.alarmTypeID = alarmTypeID;
 	}
 	@Override
 	public String toString() {
