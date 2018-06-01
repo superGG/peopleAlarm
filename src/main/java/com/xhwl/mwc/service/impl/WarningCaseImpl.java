@@ -17,8 +17,10 @@ public class WarningCaseImpl implements WarningCaseService {
 	@Autowired
 	WarningCaseDao warningCaseDao;
 	
-	@Value("${little_seven}")
-	private String little_seven_url;
+	@Value("${little_seven_test}")
+	private String little_seven_test_url;
+	@Value("${little_seven_pro}")
+	private String little_seven_pro_url;
 	
 	
 	public void uploadWarningCase(MaisiWarningCaseVo caseVo) {
@@ -30,8 +32,10 @@ public class WarningCaseImpl implements WarningCaseService {
 						casePo.getAlarmTypeID().equals("-1342177267") || 
 						casePo.getAlarmTypeID().equals("-1342177266")) { //重点关注告警信息
 					JSONObject jsonParams = (JSONObject) new JSONObject().toJSON(caseVo);
-					JSONObject jsonResult = HttpUtils.httpPost(little_seven_url, jsonParams);
-					if (jsonResult!=null) System.out.println("----------请求结果:"+jsonResult.toString()+"-------------");
+					JSONObject jsonResult_test = HttpUtils.httpPost(little_seven_test_url, jsonParams);
+					if (jsonResult_test!=null) System.out.println("----------请求结果:"+jsonResult_test.toString()+"-------------");
+					JSONObject jsonResult_pro = HttpUtils.httpPost(little_seven_pro_url, jsonParams);
+					if (jsonResult_pro!=null) System.out.println("----------请求结果:"+jsonResult_pro.toString()+"-------------");
 				}
 			}
 		}
