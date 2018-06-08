@@ -31,11 +31,13 @@ public class WarningCaseImpl implements WarningCaseService {
 				if(casePo.getAlarmTypeID().equals("-1342177268") || 
 						casePo.getAlarmTypeID().equals("-1342177267") || 
 						casePo.getAlarmTypeID().equals("-1342177266")) { //重点关注告警信息
-					JSONObject jsonParams = (JSONObject) new JSONObject().toJSON(caseVo);
-					JSONObject jsonResult_test = HttpUtils.httpPost(little_seven_test_url, jsonParams);
-					if (jsonResult_test!=null) System.out.println("----------请求结果:"+jsonResult_test.toString()+"-------------");
-					JSONObject jsonResult_pro = HttpUtils.httpPost(little_seven_pro_url, jsonParams);
-					if (jsonResult_pro!=null) System.out.println("----------请求结果:"+jsonResult_pro.toString()+"-------------");
+					if (casePo.getAlarmClearTime() == null) {
+						JSONObject jsonParams = (JSONObject) new JSONObject().toJSON(caseVo);
+						JSONObject jsonResult_test = HttpUtils.httpPost(little_seven_test_url, jsonParams);
+						if (jsonResult_test!=null) System.out.println("----------请求结果:"+jsonResult_test.toString()+"-------------");
+						JSONObject jsonResult_pro = HttpUtils.httpPost(little_seven_pro_url, jsonParams);
+						if (jsonResult_pro!=null) System.out.println("----------请求结果:"+jsonResult_pro.toString()+"-------------");
+					}
 				}
 			}
 		}
