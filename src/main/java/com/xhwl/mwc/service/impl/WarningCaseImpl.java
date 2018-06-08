@@ -3,6 +3,7 @@ package com.xhwl.mwc.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xhwl.mwc.bean.MaisiWarningCaseVo;
@@ -31,7 +32,7 @@ public class WarningCaseImpl implements WarningCaseService {
 				if(casePo.getAlarmTypeID().equals("-1342177268") || 
 						casePo.getAlarmTypeID().equals("-1342177267") || 
 						casePo.getAlarmTypeID().equals("-1342177266")) { //重点关注告警信息
-					if (casePo.getAlarmClearTime() == null) {
+					if (StringUtils.isEmpty(casePo.getAlarmClearTime())) {
 						JSONObject jsonParams = (JSONObject) new JSONObject().toJSON(caseVo);
 						JSONObject jsonResult_test = HttpUtils.httpPost(little_seven_test_url, jsonParams);
 						if (jsonResult_test!=null) System.out.println("----------请求结果:"+jsonResult_test.toString()+"-------------");
